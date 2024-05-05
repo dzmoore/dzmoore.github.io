@@ -13,10 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: dzmoore - a blog
+title: Dylan Moore - Software, etc.
 email: dm792360@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  dzmoore - a blog
+  Dylan Moore - Software, etc.
 #twitter_username: username
 #github_username: username
 minimal_mistakes_skin: dark
@@ -29,7 +29,7 @@ remote_theme: mmistakes/minimal-mistakes
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/Los_Angeles # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
   - _pages
@@ -58,7 +58,7 @@ plugins:
 author:
   name   : "Dylan Moore"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  bio    : ""
   links:
     # - label: "Website"
     #   icon: "fas fa-fw fa-link"
