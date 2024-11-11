@@ -111,3 +111,5 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+repository: dzmoore/dzmoore.github.io
