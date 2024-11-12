@@ -56,6 +56,7 @@ jobs:
       - name: Umlet Render
         id: umlet-render
         run: |
+          mkdir -p _site/assets/images/umlet && 
           find assets/umlet -name '*.uxf' -print0 | 
           xargs -0 -I {} java -jar Umlet/umlet.jar -action=convert -format=png -filename={} -output=_site/assets/images/{}.png
       - name: Upload artifact
