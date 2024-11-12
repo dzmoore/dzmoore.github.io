@@ -42,11 +42,22 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Download Umlet
+        id: download-umlet
+        run: curl -LO https://www.umlet.com/download/umlet_15_1/umlet-standalone-15.1.zip
+      - name: Unzip Umlet
+        id: unzip-umlet
+        run: unzip umlet-standalone-15.1.zip
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      - name: Umlet Render
+        id: umlet-render
+        run: |
+          find assets/umlet -name '*.uxf' -print0 | 
+          xargs -0 -I {} java -jar Umlet/umlet.jar -action=convert -format=png -filename={} -output=_site/assets/images/{}.png
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
