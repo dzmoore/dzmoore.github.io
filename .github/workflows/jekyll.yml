@@ -57,8 +57,14 @@ jobs:
         id: umlet-render
         run: |
           mkdir -p _site/assets/images/umlet && 
-          find assets/umlet -name '*.uxf' -print0 | 
-          xargs -0 -I {} java -jar Umlet/umlet.jar -action=convert -format=png -filename={} -output=_site/assets/images/{}.png
+          find assets/umlet -name '*.uxf' | 
+          sed 's/assets\/umlet\///' |
+          set 's/\.uxf//' |
+          xargs -I {} java -jar Umlet/umlet.jar \
+            -action=convert \
+            -format=png \
+            -filename='assets/umlet/{}.uxf' \
+            -output='_site/assets/images/umlet/{}.png'
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
