@@ -59,7 +59,7 @@ jobs:
           mkdir -p _site/assets/images/umlet && 
           find assets/umlet -name '*.uxf' | 
           sed 's/assets\/umlet\///' |
-          set 's/\.uxf//' |
+          sed 's/\.uxf//' |
           xargs -I {} java -jar Umlet/umlet.jar \
             -action=convert \
             -format=png \
