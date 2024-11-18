@@ -65,6 +65,20 @@ jobs:
             -format=png \
             -filename='assets/umlet/{}.uxf' \
             -output='_site/assets/images/umlet/{}.png'
+      - name: ImageMagick Action
+        uses: jruipinto/ImageMagick-action@v1
+        with:
+          # Invert umlet images with ImageMagick
+          command: |
+            mkdir -p _site/assets/images/umlet/inverted && 
+            find _site/assets/images/umlet -name '*.png' | 
+            sed 's/_site\/assets\/images\/umlet\///' | 
+            xargs -I {} \
+              magick convert \
+                _site/assets/images/umlet/{} \
+                -channel RGB \
+                -negate \
+                _site/assets/images/umlet/inverted/{}
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3

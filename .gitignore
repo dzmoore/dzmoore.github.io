@@ -4,3 +4,5 @@ _site
 Gemfile.lock
 
 assets/umlet/**.png
+Umlet
+umlet-standalone-*zip

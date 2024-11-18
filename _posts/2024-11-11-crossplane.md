@@ -18,5 +18,5 @@ tags:
 * Containers are lightweight, portable, isolated environments that package an application along with its dependencies, libraries, and configuration files.
 * Unlike Virtual Machines, containers share the host Operating System kernel, running in separate user spaces
 
-![image-left](/assets/images/umlet/test-diagram.png)
+![image-left](/assets/images/umlet/inverted/test-diagram.png)
 
