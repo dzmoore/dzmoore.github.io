@@ -3,6 +3,6 @@ _site
 .jekyll-metadata
 Gemfile.lock
 
-assets/umlet/**.png
 Umlet
 umlet-standalone-*zip
+nohup.out
