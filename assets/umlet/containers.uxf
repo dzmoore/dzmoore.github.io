@@ -36,7 +36,7 @@ transparency=0
       <h>50</h>
     </coordinates>
     <panel_attributes>App2
-bg=#C05746
+bg=#525F45
 fg=white
 transparency=0
 </panel_attributes>
@@ -127,7 +127,7 @@ transparency=0
       <h>50</h>
     </coordinates>
     <panel_attributes>App6
-bg=#B2CBD5
+bg=#516182
 fg=white
 transparency=0
 </panel_attributes>
@@ -230,7 +230,8 @@ transparency=0</panel_attributes>
       <h>50</h>
     </coordinates>
     <panel_attributes>Guest Machines
-bg=blue</panel_attributes>
+bg=#28323E
+fg=white</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
