@@ -65,7 +65,7 @@ jobs:
         env:
           UMLET_CACHE_HIT: ${{ steps.cache-umlet.outputs.cache-hit }}
         run: |
-          echo "steps.cache-umlet.outputs.cache-hit: $UMLET_CACHE_HIT" &&
+          if [ $UMLET_CACHE_HIT = 'true' ]; then echo "UMLET_CACHE_HIT"; fi &&
           mkdir -p _site/assets/images/umlet && 
           find assets/umlet -name '*.uxf' | 
             sed 's/assets\/umlet\///' |
