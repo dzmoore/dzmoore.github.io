@@ -46,7 +46,7 @@ jobs:
         id: cache-umlet
         uses: actions/cache@v4
         with:
-          path: umlet
+          path: /tmp/umlet
           key: umlet-zip
       - name: Download and Unzip Umlet
         id: download-umlet
@@ -65,7 +65,7 @@ jobs:
         env:
           UMLET_CACHE_HIT: ${{ steps.cache-umlet.outputs.cache-hit }}
         run: |
-          if [ $UMLET_CACHE_HIT = 'true' ]; then echo "UMLET_CACHE_HIT"; fi &&
+          if [ "$UMLET_CACHE_HIT" = 'true' ]; then echo "UMLET_CACHE_HIT"; fi &&
           mkdir -p _site/assets/images/umlet && 
           find assets/umlet -name '*.uxf' | 
             sed 's/assets\/umlet\///' |
