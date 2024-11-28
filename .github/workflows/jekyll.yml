@@ -62,8 +62,10 @@ jobs:
           JEKYLL_ENV: production
       - name: Umlet Render
         id: umlet-render
+        env:
+          UMLET_CACHE_HIT: ${{ steps.cache-umlet.outputs.cache-hit }}
         run: |
-          echo "steps.cache-umlet.outputs.cache-hit: ${{ steps.cache-umlet.outputs.cache-hit }}" &&
+          echo "steps.cache-umlet.outputs.cache-hit: $UMLET_CACHE_HIT" &&
           mkdir -p _site/assets/images/umlet && 
           find assets/umlet -name '*.uxf' | 
             sed 's/assets\/umlet\///' |

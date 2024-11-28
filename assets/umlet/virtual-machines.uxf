@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>176</x>
+      <y>280</y>
+      <w>200</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>VM1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>192</x>
+      <y>312</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>App1
+bg=#64ddd9
+fg=black
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>312</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>App2
+bg=#162759
+fg=white
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>192</x>
+      <y>408</y>
+      <w>168</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Guest OS
+bg=#D3CDD7</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>392</x>
+      <y>280</y>
+      <w>200</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>VM2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>408</x>
+      <y>312</y>
+      <w>168</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>App3
+bg=#6b2d42
+fg=white
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>408</x>
+      <y>408</y>
+      <w>168</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Guest OS
+bg=#D3CDD7</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>608</x>
+      <y>280</y>
+      <w>200</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>VM3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>624</x>
+      <y>312</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>App5
+bg=#1164ff
+fg=white
+transparency=0
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>312</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>App6
+bg=#64ddd9
+fg=black
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>624</x>
+      <y>408</y>
+      <w>168</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Guest OS
+bg=#D3CDD7</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>408</x>
+      <y>360</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>App4
+bg=#1164ff
+fg=white
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>624</x>
+      <y>360</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>App7
+bg=#162759
+fg=white
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>360</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>App8
+bg=#6b2d42
+fg=white
+
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>168</x>
+      <y>456</y>
+      <w>864</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Hypervisor
+Type 1 - VMware ESXi, Hyper-V, Xen
+- or -
+Type 2 - VirtualBox, VMware Workstation
+bg=#ffa08c
+fg=black
+transparency=0
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>168</x>
+      <y>528</y>
+      <w>864</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Infrastructure
+e.g. "Bare Metal", or Another OS (for "Type 2 Hypervisors")
+bg=#ffede6
+fg=black
+transparency=0
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>496</x>
+      <y>192</y>
+      <w>216</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Guest Machines
+bg=#7e7d01
+fg=white
+transparency=0
+halign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>704</x>
+      <y>208</y>
+      <w>280</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>330.0;80.0;320.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>208</y>
+      <w>312</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;80.0;30.0;50.0;370.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>632</x>
+      <y>224</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>824</x>
+      <y>280</y>
+      <w>200</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>VM4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>408</y>
+      <w>168</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Guest OS
+bg=#D3CDD7</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>312</y>
+      <w>168</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>App9
+bg=#6b2d42
+fg=white
+transparency=0
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>536</x>
+      <y>224</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
