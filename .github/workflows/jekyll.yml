@@ -48,7 +48,7 @@ jobs:
 
       - name: Hash Umlet URL
         id: hash-umlet-url
-        run: echo "UMLET_SHA256=$(echo $UMLET_URL | sha256)" >> "$GITHUB_OUTPUT"
+        run: echo "UMLET_SHA256=$(echo $UMLET_URL | sha256sum)" >> "$GITHUB_OUTPUT"
       
       - name: Cache Umlet
         id: cache-umlet
