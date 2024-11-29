@@ -26,6 +26,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  UMLET_URL: https://www.umlet.com/download/umlet_15_1/umlet-standalone-15.1.zip
+
 jobs:
   # Build job
   build:
@@ -42,53 +45,30 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
+      - name: Hash Umlet URL
+        id: hash-umlet-url
+        run: echo "UMLET_SHA256=$(echo $UMLET_URL | sha256)" >> "$GITHUB_OUTPUT"
+      
       - name: Cache Umlet
         id: cache-umlet
         uses: actions/cache@v4
         with:
           path: /tmp/umlet
-          key: umlet-zip
-      - name: Download and Unzip Umlet
-        id: download-umlet
-        if: steps.cache-umlet.outputs.cache-hit != 'true'
-        run: |
-          mkdir -p /tmp/umlet && 
-          curl -L -o /tmp/umlet/umlet.zip https://www.umlet.com/download/umlet_15_1/umlet-standalone-15.1.zip &&
-          unzip -d /tmp/umlet/ /tmp/umlet/umlet.zip
+          key: umlet-${{ steps.hash-umlet-url.outputs.UMLET_SHA256 }}-zip
+      
+      - name: Setup ImageMagick
+        uses: mfinelli/setup-imagemagick@v5
+      
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-      - name: Umlet Render
-        id: umlet-render
-        env:
-          UMLET_CACHE_HIT: ${{ steps.cache-umlet.outputs.cache-hit }}
-        run: |
-          if [ "$UMLET_CACHE_HIT" = 'true' ]; then echo "UMLET_CACHE_HIT"; fi &&
-          mkdir -p _site/assets/images/umlet && 
-          find assets/umlet -name '*.uxf' | 
-            sed 's/assets\/umlet\///' |
-            sed 's/\.uxf//' |
-            xargs -I {} \
-              java -jar /tmp/umlet/Umlet/umlet.jar \
-                -action=convert \
-                -format=png \
-                -filename='assets/umlet/{}.uxf' \
-                -output='_site/assets/images/umlet/{}.png'
-      - name: Setup ImageMagick
-        uses: mfinelli/setup-imagemagick@v5
-      - name: Invert Umlet Images
-        run: |
-          mkdir -p _site/assets/images/umlet/inverted && 
-          find _site/assets/images/umlet -name '*.png' | 
-          sed 's/_site\/assets\/images\/umlet\///' | 
-          xargs -I {} \
-            magick convert \
-              _site/assets/images/umlet/{} \
-              -channel RGB \
-              -negate \
-              _site/assets/images/umlet/inverted/{}
+      
+      - name: Render Umlet
+        run: ./scripts/render-umlet.sh "$UMLET_URL"
+          
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
