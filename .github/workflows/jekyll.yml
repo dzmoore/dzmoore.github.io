@@ -36,19 +36,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42 # v1.161.0
         with:
           ruby-version: '3.1' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
       - name: Hash Umlet URL
         id: hash-umlet-url
-        run: echo "UMLET_SHA256=$(echo $UMLET_URL | sha256sum)" >> "$GITHUB_OUTPUT"
+        run: echo "UMLET_SHA256=$(echo $UMLET_URL | sha256sum | sed 's/ . -//')" >> "$GITHUB_OUTPUT"
       
       - name: Cache Umlet
         id: cache-umlet
@@ -56,19 +58,15 @@ jobs:
         with:
           path: /tmp/umlet
           key: umlet-${{ steps.hash-umlet-url.outputs.UMLET_SHA256 }}-zip
+
+      - name: Install devbox
+        uses: jetify-com/devbox-install-action@v0.11.0
+        with:
+          enable-cache: 'true'
       
-      - name: Setup ImageMagick
-        uses: mfinelli/setup-imagemagick@v5
+      - name: Build
+        run: devbox run --env JEKYLL_ENV=production build
       
-      - name: Build with Jekyll
-        # Outputs to the './_site' directory by default
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: production
-      
-      - name: Render Umlet
-        run: ./scripts/render-umlet.sh "$UMLET_URL"
-          
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3

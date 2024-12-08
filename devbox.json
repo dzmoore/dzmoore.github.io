@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.6/.schema/devbox.schema.json",
+  "packages": [
+    "ruby_3_3",
+    "just@latest",
+    "imagemagick@latest",
+    "watchexec@latest"
+  ],
+  "shell": {
+    "scripts": {
+      "build": [
+        "just build"
+      ]
+    }
+  }
+}
